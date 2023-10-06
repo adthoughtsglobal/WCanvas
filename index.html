@@ -1,111 +1,160 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Wcanvas</title>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Wcanvas</title>
+    <meta
+      name="description"
+      content="Wcanvas is a webpage that allows you to code html and view the output side by side. This also let's you share your canvas."
+    />
+    <!---Mobile app capable--->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--favicon-->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png"
+    />
+    <meta
+      property="og:image"
+      content="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png"
+    />
+    <meta
+      property="twitter:image"
+      content="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png"
+    />
+    <meta
+      property="image"
+      content="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="manifest" href="/heck.webmanifest" />
+  </head>
 
-	<meta name="description"
-		content="Wcanvas is a webpage that allows you to code html and view the output side by side. This also let's you share your canvas.">
-	<!---Mobile app capable--->
-	<meta name='mobile-web-app-capable' content='yes'>
-	<meta name='apple-mobile-web-app-capable' content='yes'>
-	<!--favicon-->
-	<link rel="icon" type="image/x-icon"
-		href="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png">
-	<meta property="og:image"
-		content="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png">
-	<meta property="twitter:image"
-		content="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png">
-	<meta property="image"
-		content="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png">
-	<link href="style.css" rel="stylesheet" type="text/css" />
-	<link rel="manifest" href="/heck.webmanifest" />
-</head>
-
-<body style="background-color: #0d0d0d;">
-	<script src="script.js" defer></script>
-	<script src="https://dswp2.adthoughtsglobal.repl.co/script.js"></script>
-	<div class="tools">
-		<img
-			src="https://media.discordapp.net/attachments/911886961273348096/1072110610503958528/Untitled473_20230206163405.png"><button
-			onclick="run()" class="runbtn">Run</button><button info="Share this canvas encoded!" data-flow="bottom"
-			class="shbtn" onclick="share()">Share</button>
-		<button onclick="togmod()" id="okku" class="tgbtn">Settings</button>
-	</div>
-	<center>
-
-
-
-		<textarea id="codee" class="canvasar" spellcheck="false" onkeyup="trun()">
+  <body style="background-color: #0d0d0d">
+    <script src="script.js" defer></script>
+    <div class="tools">
+      <img
+        src="https://cdn.glitch.global/0e2eaa0a-ab46-4dd3-a878-6f43aa2b61db/img.png?v=1696527522680"
+      /><button onclick="run()" class="runbtn">Run</button
+      ><button
+        info="Share this canvas encoded!"
+        data-flow="bottom"
+        class="shbtn"
+        onclick="share()"
+      >
+        Share
+      </button>
+      <button onclick="togmod()" id="okku" class="tgbtn">Settings</button>
+    </div>
+    <center>
+      <div id="codc">
+        <textarea
+          id="codee"
+          class="canvasar cae"
+          spellcheck="false"
+          onkeyup="trun()"
+        >
 <h1>Hello World</h1>
 	
-<p>This is a sample code to let you know how this thing works.. This is Wcanvas and here you have infinite freedom.</p>
-</textarea>
-		<div id="output"></div>
-		<div id="snackbar">Some text some message..</div>
+<p>This is a sample code to let you know how this thing works.. This is Wcanvas and here you have infinite possibilities.</p>
+</textarea
+        >
 
-	</center>
-	<!-- The Modal -->
-	<div id="myModal" class="modal1">
-		<div class="modal-content1">
-			<span class="close1" onclick="clsm()">&times;</span>
-			<h2>Settings</h2>
-			<hr>
-			<h3>Theme</h3>
-			<h4>Presets</h4>
-			<div style="background-color: black" class="thcard" onclick="apth('dark')">
-				<h3 style="color: white">Dark theme</h3>
-			</div>
-			<div style="background-color: white" class="thcard" onclick="apth('bright')">
-				<h3 style="color: black">Bright theme</h3>
-			</div>
-			<div style="background-color: whitesmoke" class="thcard" onclick="apth('brilliant')">
-				<h3 style="color: black">Brilliant theme</h3>
-			</div>
-			<div style="background-color: black" class="thcard" onclick="apth('Term')">
-				<h3 style="color: green">Terminal theme</h3>
-			</div>
-			<h4>Custom theme</h4>
-			<div class="option">
-				<a>Background Color</a><input type="color" id="thcp"><button class="button-71"
-					onclick="ctha()">Apply</button>
-			</div><br><hr>
-			<h3>Automatic</h3>
-			<div class="option">
-				<a>Run Code as you type</a>
-				<label class="switch">
-					<input checked id="rcat" type="checkbox">
-					<span class="slider round"></span>
-				</label>
-			</div>
-		</div>
-	</div>
+        <div id="output" class="cae"></div>
+      </div>
+      <div id="snackbar">Some text some message..</div>
+    </center>
+    <!-- The Modal -->
+    <div id="myModal" class="modal1">
+      <div class="modal-content1">
+        <span class="close1" onclick="clsm()">&times;</span>
+        <h2>Settings</h2>
+        <hr />
+        <h3>Theme</h3>
+        <h4>Presets</h4>
+        <div
+          style="background-color: black"
+          class="thcard"
+          onclick="apth('dark')"
+        >
+          <h3 style="color: white">Dark theme</h3>
+        </div>
+        <div
+          style="background-color: white"
+          class="thcard"
+          onclick="apth('bright')"
+        >
+          <h3 style="color: black">Bright theme</h3>
+        </div>
+        <div
+          style="background-color: whitesmoke"
+          class="thcard"
+          onclick="apth('brilliant')"
+        >
+          <h3 style="color: black">Brilliant theme</h3>
+        </div>
+        <div
+          style="background-color: black"
+          class="thcard"
+          onclick="apth('Term')"
+        >
+          <h3 style="color: green">Terminal theme</h3>
+        </div>
+        <h4>Custom theme</h4>
+        <div class="option">
+          <a>Background Color</a><input type="color" id="thcp" /><button
+            class="button-71"
+            onclick="ctha()"
+          >
+            Apply
+          </button>
+        </div>
+        <br />
+        <hr />
+        <h3>Preferences</h3>
+        <div class="option">
+          <a>Run Code as you type</a>
+          <label class="switch">
+            <input checked id="rcat" type="checkbox"/>
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="option">
+          <a>Side by side layout</a>
+          <label class="switch">
+            <button onclick="chlay()" class="chlaybtn">
+              Switch Layout
+            </button>
+          </label>
+        </div>
+      </div>
+    </div>
 
-	<!-- The Share Modal -->
-	<div id="sModal" class="modal1">
-		<div class="modal-content1">
-			<span class="close1" onclick="clsm()">&times;</span>
-			<h2>Share Code</h2>
-			<input id="linkin" disabled>
-			<p>
-				You may <b style="cursor: pointer;" onclick="copy()">click me</b> to copy, and share this link to
-				anyone. remember to keep the code smaller and effective!
-			</p>
-			<h3>Advanced Options</h3>
-			<div class="option">
-				<a>Run Code onload</a>
-				<label class="switch">
-					<input onclick="share()" checked id="rcos" type="checkbox">
-					<span class="slider round"></span>
-				</label>
-			</div>
-		</div><br>
-
-	</div>
-	</div>
-
-</body>
-
+    <!-- The Share Modal -->
+    <div id="sModal" class="modal1">
+      <div class="modal-content1">
+        <span class="close1" onclick="clsm()">&times;</span>
+        <h2>Share Code</h2>
+        <input id="linkin" readonly onclick="this.select()" />
+        <p>
+          You may <b style="cursor: pointer" onclick="copy()">click me</b> to
+          copy, and share this link to anyone. remember to keep the code smaller
+          and effective!
+        </p>
+        <h3>Advanced Options</h3>
+        <div class="option">
+          <a>Run Code onload</a>
+          <label class="switch">
+            <input onclick="share()" checked id="rcos" type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <br />
+    </div>
+  </body>
 </html>
